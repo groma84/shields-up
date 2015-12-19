@@ -11,12 +11,17 @@
     
     <script src="src/ecs/base.js"></script>
 
-    <script src="src/renderer/init.js"></script>
+    <script src="src/state-machine/initFsm.js"></script>
+
+    <script src="src/renderer/initPixi.js"></script>
     <script src="src/renderer/loadAssets.js"></script>
     <script src="src/renderer/render.js"></script>
 
-    <!-- Der gameloop muss immer als letztes kommen -->
     <script src="src/gameloop.js"></script>
+    <script src="src/game-setup.js"></script>
+    
+    <!-- In game.js wird das Spiel gestartet -->
+    <script src="src/game.js"></script>
 </head>
 <body>
     <h1>Shield's Up</h1>

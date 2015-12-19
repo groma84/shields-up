@@ -82,12 +82,14 @@
     <Content Include="lib\pixi.min.js" />
     <Content Include="lib\state-machine.min.js" />
     <Content Include="src\ecs\base.js" />
+    <Content Include="src\game-setup.js" />
+    <Content Include="src\game.js" />
     <Content Include="src\gameloop.js" />
     <Content Include="src\init.js" />
-    <Content Include="src\renderer\init.js" />
+    <Content Include="src\renderer\initPixi.js" />
     <Content Include="src\renderer\loadAssets.js" />
     <Content Include="src\renderer\render.js" />
-    <Content Include="src\state-machine\init.js" />
+    <Content Include="src\state-machine\initFsm.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

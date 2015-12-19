@@ -32,38 +32,3 @@
         requestAnimationFrame(frame);
     }
 }
-
-var initialRunner = function () {
-    game.renderer.setup({
-        xSize: 960,
-        ySize: 450,
-        backgroundColor: '0x000000'
-    });
-
-    game.gameloop.run({
-        fps: 30,
-        update: function (step) {
-            //console.debug("update: " + step)
-        },
-        render: function (dt) {
-            //console.debug("render: " + dt)
-            game.renderer.animate(dt);
-        },
-    });
-};
-
-if (window.attachEvent) {
-    window.attachEvent('onload', initialRunner);
-} else {
-    if (window.onload) {
-        var curronload = window.onload;
-        var newonload = function (evt) {
-            curronload(evt);
-            initialRunner(evt);
-        };
-        window.onload = newonload;
-    } else {
-        window.onload = initialRunner;
-    }
-}
-
