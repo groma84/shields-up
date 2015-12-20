@@ -78,16 +78,22 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\sprites\bg1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="index.html" />
     <Content Include="lib\pixi.min.js" />
     <Content Include="lib\state-machine.min.js" />
+    <Content Include="src\components\initComponents.js" />
+    <Content Include="src\components\Render.js" />
+    <Content Include="src\components\RigidBody.js" />
     <Content Include="src\ecs\base.js" />
     <Content Include="src\game-setup.js" />
     <Content Include="src\game.js" />
     <Content Include="src\gameloop.js" />
     <Content Include="src\init.js" />
     <Content Include="src\renderer\initPixi.js" />
-    <Content Include="src\renderer\loadAssets.js" />
+    <Content Include="src\renderer\assets.js" />
     <Content Include="src\renderer\render.js" />
     <Content Include="src\state-machine\initFsm.js" />
     <Content Include="Web.config" />
@@ -95,9 +101,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="assets\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

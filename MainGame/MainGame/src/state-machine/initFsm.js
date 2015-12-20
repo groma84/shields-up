@@ -12,7 +12,7 @@
             console.debug("ongame");
 
             game.renderer.setup({
-                xSize: 960,
+                xSize: 800,
                 ySize: 450,
                 backgroundColor: '0x000000'
             });
