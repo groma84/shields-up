@@ -1,6 +1,10 @@
 ﻿/// <reference path="../../lib/pixi.js.d.ts" />
 /// <reference path="RenderOptions.ts" />
 /// <reference path="../ECS/Entity.ts" />
+/// <reference path="../Assets/Sprites.ts" />
+/// <reference path="../Components/Type.ts" />
+/// <reference path="../Components/Render.ts" />
+/// <reference path="../Components/RigidBody.ts" />
 
 module Game {
     export module Systems {
@@ -22,14 +26,12 @@ module Game {
             }
 
             Run(dt: number, entities: ECS.Entity[]) {
-                // TODO: Komponenten suchen an den Entities, und ggf. zur Stage hinzufügen
                 var knownEntityIds: number[] = [];
                 var renderComponents: Components.Render[] = [];
                 var rigidBodyComponents: Components.RigidBody[] = [];
 
-
                 entities.forEach((entity) => {
-                    if (entity && (entity.Mask & (Game.Components.Type.Render | Game.Components.Type.RigidBody))) {
+                    if (entity && (entity.Mask & (Game.Components.Type.Render || Game.Components.Type.RigidBody))) {
                         knownEntityIds.push(entity.Id);
                         renderComponents[entity.Id] = <Components.Render>(entity.Components.filter((component) => (component.Mask & Game.Components.Type.Render) > 0)[0]); // wir brauchen immer nur die erste, gibt ja eh nur eine.
                         rigidBodyComponents[entity.Id] = <Components.RigidBody>(entity.Components.filter((component) => (component.Mask & Game.Components.Type.RigidBody) > 0)[0]); // wir brauchen immer nur die erste, gibt ja eh nur eine.

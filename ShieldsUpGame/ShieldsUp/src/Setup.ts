@@ -4,6 +4,7 @@
 /// <reference path="Components/Component.ts" />
 /// <reference path="Components/Render.ts" />
 /// <reference path="Components/RigidBody.ts" />
+/// <reference path="Components/Player.ts" />
 
 module Game {
     export class Setup {
@@ -16,6 +17,14 @@ module Game {
             // TODO später: Background-Musik
         
             return [rigidBody, render];
+        }
+
+        private createPlanet(): Components.Component[] {
+            var rigidBody = new Game.Components.RigidBody(400, 225, 200, 200),
+                render = new Game.Components.Render(Game.Assets.Definitions.Planet, new PIXI.Point(0.25, 0.25)),
+                player = new Game.Components.Player();
+
+            return [rigidBody, render, player];
         }
 
         private startGame(loadedResources) {
@@ -35,6 +44,7 @@ module Game {
             // TODO: Components body (mit position und size), render (mit Grafik und Skalierung), sound (mit Audio-File, Volume und Loop), movement (mit velocity und direction)
             // TODO: Systems (Rendering, Audio, Physics)
             Game.ECS.Manager.AddEntity(this.createBackgroundComponents());
+            Game.ECS.Manager.AddEntity(this.createPlanet());
 
             this.preloadImages();
         }

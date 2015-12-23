@@ -2,16 +2,18 @@
 <html>
 <head>
     <title>Shield's Up</title>
-	<meta charset="utf-8" />
+    <meta charset="utf-8" />
 
     <script src="lib/pixi.min.js"></script>
     <script src="lib/state-machine.min.js"></script>
 
     <script src="src/DebugSettings.js"></script>
-    
+
     <!-- Components -->
     <script src="src/Components/Type.js"></script>
     <script src="src/Components/Component.js"></script>
+    <script src="src/Components/Move.js"></script>
+    <script src="src/Components/Player.js"></script>
     <script src="src/Components/Render.js"></script>
     <script src="src/Components/RigidBody.js"></script>
 
@@ -28,6 +30,9 @@
     <script src="src/Systems/UpdateSystem.js"></script>
     <script src="src/Systems/Loops.js"></script>
     <script src="src/Systems/Manager.js"></script>
+
+    <script src="src/Systems/EnemyFactory.js"></script>
+    <script src="src/Systems/Move.js"></script>
     <script src="src/Systems/RenderOptions.js"></script>
     <script src="src/Systems/Render.js"></script>
 
@@ -40,10 +45,11 @@
     <script src="src/GameloopOptions.js"></script>
     <script src="src/Gameloop.js"></script>
     <script src="src/Setup.js"></script>
-    
+
     <!-- In Game.js wird das Spiel gestartet -->
     <script src="src/Game.js"></script>
 </head>
+
 <body>
     <h1>Shield's Up</h1>
 </body>

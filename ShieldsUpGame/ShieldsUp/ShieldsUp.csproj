@@ -68,6 +68,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\sprites\Blue-Planet-psd85316.png" />
+    <Content Include="assets\sprites\meteor-01.png" />
     <Content Include="packages.config" />
     <Content Include="lib\pixi.min.js.map" />
     <None Include="Web.Debug.config">
@@ -87,6 +89,8 @@
     <TypeScriptCompile Include="src\Assets\Definitions.ts" />
     <TypeScriptCompile Include="src\Assets\Sprites.ts" />
     <TypeScriptCompile Include="src\Components\Component.ts" />
+    <TypeScriptCompile Include="src\Components\Move.ts" />
+    <TypeScriptCompile Include="src\Components\Player.ts" />
     <TypeScriptCompile Include="src\Components\Type.ts" />
     <TypeScriptCompile Include="src\Components\Render.ts" />
     <TypeScriptCompile Include="src\Components\RigidBody.ts" />
@@ -102,6 +106,8 @@
     <TypeScriptCompile Include="src\Systems\Initialize.ts" />
     <TypeScriptCompile Include="src\Systems\Loops.ts" />
     <TypeScriptCompile Include="src\Systems\Manager.ts" />
+    <TypeScriptCompile Include="src\Systems\EnemyFactory.ts" />
+    <TypeScriptCompile Include="src\Systems\Move.ts" />
     <TypeScriptCompile Include="src\Systems\Render.ts" />
     <TypeScriptCompile Include="src\Systems\RenderOptions.ts" />
     <TypeScriptCompile Include="src\Systems\RenderSystem.ts" />

@@ -25,10 +25,10 @@ module Game {
 
                 while (dt > slowStep) {
                     dt = dt - slowStep;
-                    update(step, Game.ECS.Manager.Entities);
+                    update(step, Game.ECS.Manager.DefinedEntities);
                 }
 
-                render(dt / slow, Game.ECS.Manager.Entities);
+                render(dt / slow, Game.ECS.Manager.DefinedEntities);
                 last = now;
 
                 //fpsmeter.tick();

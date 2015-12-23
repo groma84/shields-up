@@ -5,7 +5,10 @@ module Game {
     export module ECS {
         export class Manager {
             static Entities: Entity[];
-            
+            static get DefinedEntities(): Entity[] {
+                return this.Entities.filter((item) => !!item);
+            }
+
             static AddEntity(initialComponents: Components.Component[]): number {
                 if (!Manager.Entities) {
                     Manager.Entities = Array.apply(null, Array(255)).map(function () { return null; });

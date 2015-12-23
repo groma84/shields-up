@@ -5,7 +5,9 @@ module Game {
     export module Assets {
         export class Sprites {
             private _definitions: AssetDefinition[] = [
-                Definitions.BackgroundImage01
+                Definitions.BackgroundImage01,
+                Definitions.Planet,
+                Definitions.Meteor01,
             ];
 
             static LoadedTextures: PIXI.Texture[]
