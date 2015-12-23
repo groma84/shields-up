@@ -1,4 +1,6 @@
-﻿// Add IE-specific interfaces to Window
+﻿/// <reference path="Setup.ts" />
+
+// Add IE-specific interfaces to Window
 interface Window {
     attachEvent(event: string, listener: EventListener): boolean;
     detachEvent(event: string, listener: EventListener): void;
@@ -9,7 +11,7 @@ module Game {
 
 (function () {
     var initialRunner = function () {
-        new Game.Setup().initialize();
+        new Game.Setup().Initialize();
     };
 
     if (window.attachEvent) {

@@ -3,10 +3,12 @@
 module Game {
     export module ECS {
         export class Entity {
+            Id: number;
             Components: Components.Component[];
             Mask: number;
 
-            constructor(components: Components.Component[], mask: number) {
+            constructor(id: number, components: Components.Component[], mask: number) {
+                this.Id = id;
                 this.Components = components;
                 this.Mask = mask;
             }

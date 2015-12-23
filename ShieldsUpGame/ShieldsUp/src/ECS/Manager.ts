@@ -5,30 +5,28 @@ module Game {
     export module ECS {
         export class Manager {
             static Entities: Entity[];
-
-            constructor() {
-                if (Manager.Entities === null) {
+            
+            static AddEntity(initialComponents: Components.Component[]): number {
+                if (!Manager.Entities) {
                     Manager.Entities = Array.apply(null, Array(255)).map(function () { return null; });
                 }
-            }
 
-            AddEntity(initialComponents: Components.Component[]): number {
                 var firstEmptyEntryIndex: number = Manager.Entities.indexOf(null);
-                Manager.Entities[firstEmptyEntryIndex] = new Entity(initialComponents, this.GetMaskFromComponents(initialComponents));
+                Manager.Entities[firstEmptyEntryIndex] = new Entity(firstEmptyEntryIndex, initialComponents, Manager.GetMaskFromComponents(initialComponents));
 
                 return firstEmptyEntryIndex;
             }
 
-            RemoveEntity(entityId: number): void {
+            static RemoveEntity(entityId: number): void {
                 Manager.Entities[entityId] = null;
             }
 
-            AddComponent(entityId: number, component: Components.Component): void {
+            static AddComponent(entityId: number, component: Components.Component): void {
                 Manager.Entities[entityId].Components.push(component);
                 Manager.Entities[entityId].Mask = Manager.Entities[entityId].Mask | component.Mask;
             }
 
-            RemoveComponent(entityId: number, component: Components.Component): void {
+            static RemoveComponent(entityId: number, component: Components.Component): void {
                 var index: number = Manager.Entities[entityId].Components.indexOf(component);
 
                 if (index > -1) {
@@ -37,7 +35,7 @@ module Game {
                 }
             }
 
-            private GetMaskFromComponents(components: Components.Component[]): number {
+            private static GetMaskFromComponents(components: Components.Component[]): number {
                 var finalMask = 0x0,
                     i;
 

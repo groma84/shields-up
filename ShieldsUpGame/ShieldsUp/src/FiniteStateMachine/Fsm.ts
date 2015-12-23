@@ -5,6 +5,10 @@ module Game {
         export class Fsm {
             private _stateMachine;
 
+            FirstStart() {
+                this._stateMachine.firstStart();
+            }
+
             constructor() {
                 this._stateMachine = StateMachine.create({
                     initial: 'none',
@@ -19,29 +23,16 @@ module Game {
                         ongame: function (event, from, to, msg) {
                             console.debug("ongame");
 
-                            Game..renderer.setup({
-                                xSize: 800,
-                                ySize: 450,
-                                backgroundColor: '0x000000'
-                            });
+                            Game.Systems.Initialize.All();
 
-                            game.gameloop.run({
-                                fps: 30,
-                                update: function (step) {
-                                    //console.debug("update: " + step)
-                                },
-                                render: function (dt) {
-                                    //console.debug("render: " + dt)
-                                    game.renderer.animate(dt);
-                                },
-                            });
-
+                            new Game.Gameloop().Run(new Game.GameloopOptions(Game.Systems.Loops.Update, Game.Systems.Loops.Render, 30));
                         },
 
                         onmenu: function (event, from, to, msg) {
                             console.debug("onmenu");
                         },
-                    } 
+                    }
+                });
             }
         }
     }

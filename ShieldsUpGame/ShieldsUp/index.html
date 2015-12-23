@@ -7,24 +7,42 @@
     <script src="lib/pixi.min.js"></script>
     <script src="lib/state-machine.min.js"></script>
 
-    <script src="src/init.js"></script>
+    <script src="src/DebugSettings.js"></script>
     
-    <script src="src/ecs/base.js"></script>
+    <!-- Components -->
+    <script src="src/Components/Type.js"></script>
+    <script src="src/Components/Component.js"></script>
+    <script src="src/Components/Render.js"></script>
+    <script src="src/Components/RigidBody.js"></script>
 
-    <script src="src/state-machine/initFsm.js"></script>
+    <!-- ECS -->
+    <script src="src/ECS/Entity.js"></script>
+    <script src="src/ECS/Manager.js"></script>
 
-    <script src="src/renderer/initPixi.js"></script>
-    <script src="src/renderer/loadAssets.js"></script>
-    <script src="src/renderer/render.js"></script>
+    <!-- FiniteStateMachine -->
+    <script src="src/FiniteStateMachine/Fsm.js"></script>
 
-    <script src="src/components/initComponents.js"></script>
-    <script src="src/components/RigidBody.js"></script>
+    <!-- Systems -->
+    <script src="src/Systems/Initialize.js"></script>
+    <script src="src/Systems/RenderSystem.js"></script>
+    <script src="src/Systems/UpdateSystem.js"></script>
+    <script src="src/Systems/Loops.js"></script>
+    <script src="src/Systems/Manager.js"></script>
+    <script src="src/Systems/RenderOptions.js"></script>
+    <script src="src/Systems/Render.js"></script>
 
-    <script src="src/gameloop.js"></script>
+    <!-- Assets -->
+    <script src="src/Assets/AssetDefinition.js"></script>
+    <script src="src/Assets/Definitions.js"></script>
+    <script src="src/Assets/Sprites.js"></script>
+
+    <!-- root-folder -->
+    <script src="src/GameloopOptions.js"></script>
+    <script src="src/Gameloop.js"></script>
+    <script src="src/Setup.js"></script>
     
-    <!-- In game.js wird das Spiel gestartet -->
-    <script src="src/game-setup.js"></script>
-    <script src="src/game.js"></script>
+    <!-- In Game.js wird das Spiel gestartet -->
+    <script src="src/Game.js"></script>
 </head>
 <body>
     <h1>Shield's Up</h1>

@@ -3,12 +3,10 @@
         export class RenderOptions {
             XSize: number;
             YSize: number;
-            BackgroundColor: string;
 
-            constructor(xSize: number, ySize: number, backgroundColor: string) {
+            constructor(xSize: number, ySize: number) {
                 this.XSize = xSize;
                 this.YSize = ySize;
-                this.BackgroundColor = backgroundColor;
             }
         }
     }

@@ -83,23 +83,29 @@
     <Content Include="lib\pixi.min.js" />
     <Content Include="lib\state-machine.min.js" />
     <TypeScriptCompile Include="lib\pixi.js.d.ts" />
+    <TypeScriptCompile Include="src\Assets\AssetDefinition.ts" />
+    <TypeScriptCompile Include="src\Assets\Definitions.ts" />
+    <TypeScriptCompile Include="src\Assets\Sprites.ts" />
     <TypeScriptCompile Include="src\Components\Component.ts" />
     <TypeScriptCompile Include="src\Components\Type.ts" />
     <TypeScriptCompile Include="src\Components\Render.ts" />
     <TypeScriptCompile Include="src\Components\RigidBody.ts" />
     <TypeScriptCompile Include="src\ECS\Manager.ts" />
     <TypeScriptCompile Include="src\ECS\Entity.ts" />
-    <TypeScriptCompile Include="src\game-setup.ts" />
-    <TypeScriptCompile Include="src\game.ts" />
-    <TypeScriptCompile Include="src\gameloop.ts" />
-    <TypeScriptCompile Include="src\init.ts" />
-    <Content Include="src\renderer\assets.js" />
-    <Content Include="src\renderer\initPixi.js" />
-    <Content Include="src\renderer\render.js" />
-    <TypeScriptCompile Include="src\StateMachine\Fsm.ts" />
+    <TypeScriptCompile Include="src\GameloopOptions.ts" />
+    <TypeScriptCompile Include="src\Setup.ts" />
+    <TypeScriptCompile Include="src\Game.ts" />
+    <TypeScriptCompile Include="src\Gameloop.ts" />
+    <TypeScriptCompile Include="src\DebugSettings.ts" />
+    <TypeScriptCompile Include="src\FiniteStateMachine\Fsm.ts" />
     <Content Include="Web.config" />
+    <TypeScriptCompile Include="src\Systems\Initialize.ts" />
+    <TypeScriptCompile Include="src\Systems\Loops.ts" />
+    <TypeScriptCompile Include="src\Systems\Manager.ts" />
     <TypeScriptCompile Include="src\Systems\Render.ts" />
     <TypeScriptCompile Include="src\Systems\RenderOptions.ts" />
+    <TypeScriptCompile Include="src\Systems\RenderSystem.ts" />
+    <TypeScriptCompile Include="src\Systems\UpdateSystem.ts" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -107,9 +113,7 @@
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="src\Assets\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
