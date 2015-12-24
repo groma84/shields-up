@@ -1,4 +1,5 @@
 ﻿/// <reference path="../../lib/pixi.js.d.ts" />
+/// <reference path="../Utils/Vector2.ts" />
 /// <reference path="../ECS/Entity.ts" />
 /// <reference path="../Components/Type.ts" />
 /// <reference path="../Components/Move.ts" />
@@ -23,8 +24,8 @@ module Game {
                 });
 
                 entitiesToMove.forEach((entity) => {
-                    entity.RigidBody.X += entity.Move.Direction.x * entity.Move.Velocity;
-                    entity.RigidBody.Y += entity.Move.Direction.y * entity.Move.Velocity;
+                    entity.RigidBody.X += entity.Move.Direction.X * entity.Move.Velocity * step;
+                    entity.RigidBody.Y += entity.Move.Direction.Y * entity.Move.Velocity * step;
                 });
             }
         }

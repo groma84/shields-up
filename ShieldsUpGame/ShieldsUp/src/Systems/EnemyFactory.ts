@@ -1,4 +1,5 @@
 ﻿/// <reference path="../../lib/pixi.js.d.ts" />
+/// <reference path="../Utils/Vector2.ts" />
 /// <reference path="../ECS/Entity.ts" />
 /// <reference path="../ECS/Manager.ts" />
 /// <reference path="../Components/Component.ts" />
@@ -24,13 +25,9 @@ module Game {
 
             private MakeNewMeteor(spawnLocation: PIXI.Point, target: PIXI.Point): Game.Components.Component[] {
                 var render = new Game.Components.Render(Game.Assets.Definitions.Meteor01, new PIXI.Point(1, 1)),
-                    rigidBody = new Game.Components.RigidBody(spawnLocation.x, spawnLocation.y, 50, 50),
-                    xDiff = target.x - spawnLocation.x,
-                    yDiff = target.y - spawnLocation.y,
-                    diffBetrag = Math.sqrt((xDiff * xDiff) + (yDiff * yDiff)),
-                    xNeu = xDiff / diffBetrag,
-                    yNeu = yDiff / diffBetrag,
-                    move = new Game.Components.Move(5, new PIXI.Point(xNeu, yNeu));
+                    rigidBody = new Game.Components.RigidBody(spawnLocation.x, spawnLocation.y, 50, 50),                 
+                    movementVector = new Game.Utils.Vector2(target.x - spawnLocation.x, target.y - spawnLocation.y).GetNormalized(),
+                    move = new Game.Components.Move(Math.ceil(Math.random() * 20 + 30), movementVector);
 
                 return [render, rigidBody, move];
             }

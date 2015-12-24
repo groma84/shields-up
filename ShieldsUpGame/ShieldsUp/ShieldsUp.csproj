@@ -112,6 +112,7 @@
     <TypeScriptCompile Include="src\Systems\RenderOptions.ts" />
     <TypeScriptCompile Include="src\Systems\RenderSystem.ts" />
     <TypeScriptCompile Include="src\Systems\UpdateSystem.ts" />
+    <TypeScriptCompile Include="src\Utils\Vector2.ts" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
