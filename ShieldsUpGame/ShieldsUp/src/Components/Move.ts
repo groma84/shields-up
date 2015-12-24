@@ -9,12 +9,10 @@ module Game {
             Direction: Utils.Vector2;
 
             constructor(velocity: number, direction: Utils.Vector2) {
-                super();
+                super(Game.Components.Type.Move);
                 
                 this.Velocity = velocity;
                 this.Direction = direction;
-
-                this.Mask = Game.Components.Type.Move;
             }
         }
     }

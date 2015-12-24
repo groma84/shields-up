@@ -10,14 +10,12 @@ module Game {
             YSize: number;
 
             constructor(x: number, y: number, xSize: number, ySize: number) {
-                super();
+                super(Game.Components.Type.RigidBody);
 
                 this.X = x;
                 this.Y = y;
                 this.XSize = xSize;
                 this.YSize = ySize;
-
-                this.Mask = Game.Components.Type.RigidBody;
             }
         }
     }

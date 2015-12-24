@@ -1,7 +1,9 @@
 ﻿module Game {
-    export module DebugSettings {
-        var NoSound: boolean = false;
-        var ShowSpriteBorders: boolean = false;
-        var ShowFps: boolean = false;
+    export class DebugSettings {
+        static ShowDamage: boolean = true;
+
+        //static NoSound: boolean = false;
+        //static ShowSpriteBorders: boolean = false;
+        //static ShowFps: boolean = false;
     }
 }

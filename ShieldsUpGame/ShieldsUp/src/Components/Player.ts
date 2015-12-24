@@ -6,9 +6,7 @@ module Game {
         export class Player extends Component {
         
             constructor() {
-                super();
-                
-                this.Mask = Game.Components.Type.Player;
+                super(Game.Components.Type.Player);
             }
         }
     }

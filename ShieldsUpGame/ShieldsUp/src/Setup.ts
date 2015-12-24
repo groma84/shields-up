@@ -9,6 +9,7 @@
 /// <reference path="Components/RigidBody.ts" />
 /// <reference path="Components/Player.ts" />
 /// <reference path="Components/Collide.ts" />
+/// <reference path="Components/Health.ts" />
 
 module Game {
     export class Setup {
@@ -29,9 +30,10 @@ module Game {
                 rigidBody = new Game.Components.RigidBody(position.X, position.Y, size.X, size.Y),
                 collide = new Game.Components.Collide(position.X, position.Y, size.X * 0.8, size.Y * 0.8), // ein bisschen kleinere Hitbox als Grafik
                 render = new Game.Components.Render(Game.Assets.Definitions.Planet, new PIXI.Point(0.25, 0.25)),
+                health = new Game.Components.Health(1),
                 player = new Game.Components.Player();
 
-            return [rigidBody, render, player, collide];
+            return [rigidBody, render, player, collide, health];
         }
 
         private startGame(loadedResources) {

@@ -4,6 +4,7 @@
 /// <reference path="../Components/Type.ts" />
 /// <reference path="../Components/Move.ts" />
 /// <reference path="../Components/RigidBody.ts" />
+/// <reference path="../Components/Collide.ts" />
 
 module Game {
     export module Systems {
@@ -17,8 +18,9 @@ module Game {
                 entities.forEach((entity) => {
                     if (entity.Mask & (Game.Components.Type.Move || Game.Components.Type.RigidBody)) {
                         entitiesToMove.push(new MovedEntity(
-                            <Components.Move>(entity.Components.filter((component) => (component.Mask & Game.Components.Type.Move) > 0)[0]),
-                            <Components.RigidBody>(entity.Components.filter((component) => (component.Mask & Game.Components.Type.RigidBody) > 0)[0])
+                            entity.GetComponent<Components.Move>(Components.Type.Move),
+                            entity.GetComponent<Components.RigidBody>(Components.Type.RigidBody),
+                            entity.GetComponent<Components.Collide>(Components.Type.Collide)
                         ));
                     }
                 });
@@ -26,6 +28,11 @@ module Game {
                 entitiesToMove.forEach((entity) => {
                     entity.RigidBody.X += entity.Move.Direction.X * entity.Move.Velocity * step;
                     entity.RigidBody.Y += entity.Move.Direction.Y * entity.Move.Velocity * step;
+
+                    if (entity.Collide) {
+                        entity.Collide.X += entity.Move.Direction.X * entity.Move.Velocity * step;
+                        entity.Collide.Y += entity.Move.Direction.Y * entity.Move.Velocity * step;
+                    }
                 });
             }
         }
@@ -33,10 +40,12 @@ module Game {
         class MovedEntity {
             Move: Components.Move;
             RigidBody: Components.RigidBody;
+            Collide: Components.Collide;
 
-            constructor(move: Components.Move, rigidBody: Components.RigidBody) {
+            constructor(move: Components.Move, rigidBody: Components.RigidBody, collide: Components.Collide) {
                 this.Move = move;
                 this.RigidBody = rigidBody;
+                this.Collide = collide;
             }
         }
     }

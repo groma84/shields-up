@@ -6,6 +6,8 @@
             Move = 4,
             Player = 8,
             Collide = 16,
+            Health = 32,
+            Damage = 64,
         }
     }
 }
