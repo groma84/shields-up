@@ -5,6 +5,7 @@
             Render = 2,
             Move = 4,
             Player = 8,
+            Collide = 16,
         }
     }
 }

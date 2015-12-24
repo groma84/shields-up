@@ -1,5 +1,4 @@
-﻿/// <reference path="../../lib/pixi.js.d.ts" />
-/// <reference path="../Utils/Vector2.ts" />
+﻿/// <reference path="../Utils/Vector2.ts" />
 /// <reference path="Type.ts" />
 /// <reference path="Component.ts" />
 

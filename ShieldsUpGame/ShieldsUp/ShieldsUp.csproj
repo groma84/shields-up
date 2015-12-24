@@ -88,6 +88,7 @@
     <TypeScriptCompile Include="src\Assets\AssetDefinition.ts" />
     <TypeScriptCompile Include="src\Assets\Definitions.ts" />
     <TypeScriptCompile Include="src\Assets\Sprites.ts" />
+    <TypeScriptCompile Include="src\Components\Collide.ts" />
     <TypeScriptCompile Include="src\Components\Component.ts" />
     <TypeScriptCompile Include="src\Components\Move.ts" />
     <TypeScriptCompile Include="src\Components\Player.ts" />
@@ -107,6 +108,7 @@
     <TypeScriptCompile Include="src\Systems\Loops.ts" />
     <TypeScriptCompile Include="src\Systems\Manager.ts" />
     <TypeScriptCompile Include="src\Systems\EnemyFactory.ts" />
+    <TypeScriptCompile Include="src\Systems\CollisionAabb.ts" />
     <TypeScriptCompile Include="src\Systems\Move.ts" />
     <TypeScriptCompile Include="src\Systems\Render.ts" />
     <TypeScriptCompile Include="src\Systems\RenderOptions.ts" />

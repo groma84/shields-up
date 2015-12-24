@@ -1,10 +1,14 @@
-﻿/// <reference path="FiniteStateMachine/Fsm.ts" />
+﻿/// <reference path="../lib/pixi.js.d.ts" />
+/// <reference path="Utils/Vector2.ts" />
+/// <reference path="FiniteStateMachine/Fsm.ts" />
 /// <reference path="ECS/Manager.ts" />
 /// <reference path="Assets/Sprites.ts" />
+/// <reference path="Assets/Definitions.ts" />
 /// <reference path="Components/Component.ts" />
 /// <reference path="Components/Render.ts" />
 /// <reference path="Components/RigidBody.ts" />
 /// <reference path="Components/Player.ts" />
+/// <reference path="Components/Collide.ts" />
 
 module Game {
     export class Setup {
@@ -20,11 +24,14 @@ module Game {
         }
 
         private createPlanet(): Components.Component[] {
-            var rigidBody = new Game.Components.RigidBody(400, 225, 200, 200),
+            var position = new Utils.Vector2(400, 250),
+                size = new Utils.Vector2(200, 200),
+                rigidBody = new Game.Components.RigidBody(position.X, position.Y, size.X, size.Y),
+                collide = new Game.Components.Collide(position.X, position.Y, size.X * 0.8, size.Y * 0.8), // ein bisschen kleinere Hitbox als Grafik
                 render = new Game.Components.Render(Game.Assets.Definitions.Planet, new PIXI.Point(0.25, 0.25)),
                 player = new Game.Components.Player();
 
-            return [rigidBody, render, player];
+            return [rigidBody, render, player, collide];
         }
 
         private startGame(loadedResources) {

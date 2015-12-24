@@ -10,11 +10,13 @@ module Game {
         export class Initialize {
             static All() {
                 var enemyFactory = new Game.Systems.EnemyFactory(),
-                    move = new Game.Systems.Move();
+                    move = new Game.Systems.Move(),
+                    collisionAabb = new Game.Systems.CollisionAabb();
 
                 Game.Systems.Manager.UpdateSystems = [
                     enemyFactory,
-                    move
+                    move,
+                    collisionAabb
                 ];
 
                 var options = new Game.Systems.RenderOptions(800, 450);
