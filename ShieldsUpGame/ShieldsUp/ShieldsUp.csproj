@@ -72,6 +72,7 @@
     <Content Include="assets\sprites\meteor-01.png" />
     <Content Include="packages.config" />
     <Content Include="lib\pixi.min.js.map" />
+    <Content Include="NEXT.md" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -98,6 +99,10 @@
     <TypeScriptCompile Include="src\ECS\Manager.ts" />
     <TypeScriptCompile Include="src\ECS\Entity.ts" />
     <TypeScriptCompile Include="src\GameloopOptions.ts" />
+    <TypeScriptCompile Include="src\Messaging\CollisionMessage.ts" />
+    <TypeScriptCompile Include="src\Messaging\MessageManager.ts" />
+    <TypeScriptCompile Include="src\Messaging\Message.ts" />
+    <TypeScriptCompile Include="src\Messaging\MessageType.ts" />
     <TypeScriptCompile Include="src\Setup.ts" />
     <TypeScriptCompile Include="src\Game.ts" />
     <TypeScriptCompile Include="src\Gameloop.ts" />
@@ -112,6 +117,7 @@
     <TypeScriptCompile Include="src\Systems\Move.ts" />
     <TypeScriptCompile Include="src\Systems\Render.ts" />
     <TypeScriptCompile Include="src\Systems\RenderOptions.ts" />
+    <TypeScriptCompile Include="src\Systems\MessageSystem.ts" />
     <TypeScriptCompile Include="src\Systems\RenderSystem.ts" />
     <TypeScriptCompile Include="src\Systems\UpdateSystem.ts" />
     <TypeScriptCompile Include="src\Utils\Vector2.ts" />

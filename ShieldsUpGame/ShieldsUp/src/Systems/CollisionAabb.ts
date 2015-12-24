@@ -1,6 +1,9 @@
 ﻿/// <reference path="../ECS/Entity.ts" />
 /// <reference path="../Components/Type.ts" />
 /// <reference path="../Components/RigidBody.ts" />
+/// <reference path="../Messaging/MessageManager.ts" />
+/// <reference path="../Messaging/MessageType.ts" />
+/// <reference path="../Messaging/CollisionMessage.ts" />
 
 module Game {
     export module Systems {
@@ -30,9 +33,9 @@ module Game {
                                 rect1.Collide.X + rect1.Collide.XSize > rect2.Collide.X &&
                                 rect1.Collide.Y < rect2.Collide.Y + rect2.Collide.YSize &&
                                 rect1.Collide.Y + rect1.Collide.YSize > rect2.Collide.Y) {
+
                                 // Kollision
-                                // TODO: Message auslösen, "ec1 kollidert mit ec2"
-                                console.debug(rect1.Entity.Id + " kollidiert mit " + rect2.Entity.Id);
+                                Messaging.MessageManager.Publish(Messaging.MessageType.Collision, new Messaging.CollisionMessage(rect1.Entity, rect2.Entity));
                             }
                         }
                     });
