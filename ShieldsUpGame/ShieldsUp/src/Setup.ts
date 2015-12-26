@@ -4,6 +4,8 @@
 /// <reference path="ECS/Manager.ts" />
 /// <reference path="Assets/Sprites.ts" />
 /// <reference path="Assets/Definitions.ts" />
+/// <reference path="Input/KeyboardInputHandler.ts" />
+/// <reference path="Input/DefaultKeyboardInputMap.ts" />
 /// <reference path="Components/Component.ts" />
 /// <reference path="Components/Render.ts" />
 /// <reference path="Components/RigidBody.ts" />
@@ -14,6 +16,7 @@
 module Game {
     export class Setup {
         private _fsm: Game.FiniteStateMachine.Fsm;
+        private _keyboardInputHandler: Game.Input.KeyboardInputHandler;
 
         private createBackgroundComponents(): Components.Component[] {
             var rigidBody = new Game.Components.RigidBody(400, 225, 800, 450),
@@ -48,6 +51,7 @@ module Game {
 
         Initialize() {
             this._fsm = new Game.FiniteStateMachine.Fsm();
+            this._keyboardInputHandler = new Game.Input.KeyboardInputHandler(new Game.Input.DefaultKeyboardInputMap());
 
             // Hintergrundbild mit Musik einfügen
             // TODO: Components body (mit position und size), render (mit Grafik und Skalierung), sound (mit Audio-File, Volume und Loop), movement (mit velocity und direction)

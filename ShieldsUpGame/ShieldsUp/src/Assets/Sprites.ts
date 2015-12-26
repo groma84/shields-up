@@ -8,6 +8,7 @@ module Game {
                 Definitions.BackgroundImage01,
                 Definitions.Planet,
                 Definitions.Meteor01,
+                Definitions.Shield01,
             ];
 
             static LoadedTextures: PIXI.Texture[]

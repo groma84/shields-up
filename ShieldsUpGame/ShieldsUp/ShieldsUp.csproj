@@ -70,6 +70,8 @@
   <ItemGroup>
     <Content Include="assets\sprites\Blue-Planet-psd85316.png" />
     <Content Include="assets\sprites\meteor-01.png" />
+    <Content Include="assets\sprites\shield-01.png" />
+    <Content Include="lib\keypress-2.1.3.min.js" />
     <Content Include="packages.config" />
     <Content Include="lib\pixi.min.js.map" />
     <Content Include="NEXT.md" />
@@ -101,6 +103,8 @@
     <TypeScriptCompile Include="src\ECS\Manager.ts" />
     <TypeScriptCompile Include="src\ECS\Entity.ts" />
     <TypeScriptCompile Include="src\GameloopOptions.ts" />
+    <TypeScriptCompile Include="src\Input\Inputs.ts" />
+    <TypeScriptCompile Include="src\Input\KeyboardInputMapping.ts" />
     <TypeScriptCompile Include="src\Messaging\HealthChangedMessage.ts" />
     <TypeScriptCompile Include="src\Messaging\CollisionMessage.ts" />
     <TypeScriptCompile Include="src\Messaging\MessageManager.ts" />
@@ -113,7 +117,10 @@
     <TypeScriptCompile Include="src\FiniteStateMachine\Fsm.ts" />
     <Content Include="Web.config" />
     <TypeScriptCompile Include="src\Systems\Destroy.ts" />
+    <TypeScriptCompile Include="src\Systems\ShieldFactory.ts" />
     <TypeScriptCompile Include="src\Systems\Initialize.ts" />
+    <TypeScriptCompile Include="src\Input\KeyboardInputHandler.ts" />
+    <TypeScriptCompile Include="src\Systems\Input.ts" />
     <TypeScriptCompile Include="src\Systems\Loops.ts" />
     <TypeScriptCompile Include="src\Systems\Manager.ts" />
     <TypeScriptCompile Include="src\Systems\EnemyFactory.ts" />
@@ -125,6 +132,7 @@
     <TypeScriptCompile Include="src\Systems\MessageSystem.ts" />
     <TypeScriptCompile Include="src\Systems\RenderSystem.ts" />
     <TypeScriptCompile Include="src\Systems\UpdateSystem.ts" />
+    <TypeScriptCompile Include="src\Input\DefaultKeyboardInputMap.ts" />
     <TypeScriptCompile Include="src\Utils\Vector2.ts" />
   </ItemGroup>
   <ItemGroup>
