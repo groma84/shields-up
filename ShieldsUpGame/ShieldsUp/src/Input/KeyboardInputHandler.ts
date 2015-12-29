@@ -12,8 +12,6 @@ module Game {
             constructor(inputMap: DefaultKeyboardInputMap) {
                 this._listener = new (<any>window).keypress.Listener();
 
-                this._listener.simple_combo("w", function () { console.log("w pressed"); });
-
                 inputMap.InputMappings.forEach((mapping) => {
                     this._listener.register_combo({
                         "keys": mapping.Key,

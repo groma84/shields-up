@@ -10,7 +10,7 @@ module Game {
             }
 
             Run(step: number, entities: ECS.Entity[]) {
-                if (Game.Input.KeyboardInputHandler.ActiveInput) {
+                if (Game.Input.KeyboardInputHandler.ActiveInput !== undefined) {
                     var spawnLocation: number = -1;
                     switch (Game.Input.KeyboardInputHandler.ActiveInput) {
                         case Game.Input.Inputs.ShieldLeftTop:

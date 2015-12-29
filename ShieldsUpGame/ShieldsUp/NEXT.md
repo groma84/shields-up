@@ -1,17 +1,18 @@
 ﻿# NEXT
 1. Schilde implementieren
-    - LifetimeComponent
-    - LifetimeSystem (wenn abgelaufen dann LifetimeEndsMessage)
-    - LifetimeEndsSystem (hört auf LifetimeEndsMessage und zerstört Entity)
-    - Keyboard-Handler: wsx linke Seite, ijn rechte Seite
-        1. keypress-Library einbinden
-        1. Wie merken wir uns, was gerade gedrückt wird? 
-            - Vielleicht in einer Variable im (dann neuen) Input-System - kann das Inputsystem im Update einfach pollen oder läuft das Event-gesteuert?
-            - Geben wir dem Input-System direkt KeyHandler als Delegates mit? so eine Art "Map" aus KeyCode und Delegate?
-    - wenn Taste gedrückt und letzter Schild mindestens 1s(?) her -> neuen Schild an der Stelle erzeugen
-    - ShieldFactory (Shield hat RigidBody, Render, Collision, Damage, Lifetime)
+	- LifetimeComponent
+	- LifetimeSystem (wenn abgelaufen dann LifetimeEndsMessage)
+	- LifetimeEndsSystem (hört auf LifetimeEndsMessage und zerstört Entity (erstmal))
+	- Meteoriten sollen nicht einfach zerstört werden, sondern vom Schild abprallen (X-Direction mal -1, Y-Direction bleibt)
+
+	
+
 
 # LATER
+1. Spawnpunkte Schilde an die richtige Stelle setzen
+1. Anzeige und alle Größen etc. relativ zur Canvas-Größe machen (Canvas Größe aus DOM in PIXI auslesen statt Fix setzen)
+1. Rund um das Spielfeld sollte es eine Barriere geben (außerhalb angezeigtem Bereich), die dann die Meteoriten tatsächlich zerstört
+1. Spawnpunkte der Meteoriten so anpassen, dass sie gut die Schilde treffen, aber außerhalb des sichtbaren Bereichs spawnen
 2. Punktezähler implementieren
 3. Game-Over Screen implementieren
 5. Start-Menü implementieren

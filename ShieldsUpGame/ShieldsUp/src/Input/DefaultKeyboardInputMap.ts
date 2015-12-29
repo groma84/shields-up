@@ -8,7 +8,7 @@ module Game {
 
             constructor() {
                 this.InputMappings = [
-                    //new KeyboardInputMapping("w", Inputs.ShieldLeftTop),
+                    new KeyboardInputMapping("w", Inputs.ShieldLeftTop),
                     new KeyboardInputMapping("s", Inputs.ShieldLeftMiddle),
                     new KeyboardInputMapping("x", Inputs.ShieldLeftBottom),
                     new KeyboardInputMapping("i", Inputs.ShieldRightTop),
