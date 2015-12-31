@@ -5,7 +5,7 @@
 /// <reference path="../Components/Render.ts" />
 /// <reference path="../Components/RigidBody.ts" />
 /// <reference path="../Components/Collide.ts" />
-/// <reference path="../Components/Damage.ts" />
+/// <reference path="../Components/Lifetime.ts" />
 
 module Game {
     export module Systems {
@@ -33,12 +33,11 @@ module Game {
                         render = new Game.Components.Render(Game.Assets.Definitions.Shield01, new PIXI.Point(1, 1)),
                         rigidBody = new Game.Components.RigidBody(spawnLocation.X, spawnLocation.Y, size.X, size.Y),
                         collide = new Game.Components.Collide(spawnLocation.X, spawnLocation.Y, size.X, size.Y),
-                        damage = new Game.Components.Damage(1);
-                    // TODO: Lifetime-Component, damit der Schild irgendwann auch wieder weggeht
+                        lifetime = new Game.Components.Lifetime(3);
 
                     ShieldFactory._nextAllowedSpawnTime = (ShieldFactory._gameTime + 1);
 
-                    Game.ECS.Manager.AddEntity([render, rigidBody, collide, damage]);
+                    Game.ECS.Manager.AddEntity([render, rigidBody, collide, lifetime]);
                 }
             }
 

@@ -24,17 +24,21 @@ module Game {
                     shieldFactory = new Game.Systems.ShieldFactory(),
                     move = new Game.Systems.Move(),
                     collisionAabb = new Game.Systems.CollisionAabb(),
-                    input = new Game.Systems.Input();
+                    input = new Game.Systems.Input(),
+                    lifetime = new Game.Systems.Lifetime()
+                    ;
 
+                // werden zuerst ausgefuehrt, und zwar in der Reihenfolge, in der sie im Array stecken
                 Game.Systems.Manager.UpdateSystems = [
                     input,
                     enemyFactory,
                     shieldFactory,
+                    lifetime,
                     move,
-                    collisionAabb
+                    collisionAabb,
                 ];
 
-                // RenderSystems
+                // RenderSystems, die nach den UpdateSystems ausgefuehrt werden
                 var options = new Game.Systems.RenderOptions(800, 450);
                 var renderSystem = new Game.Systems.Render(options);
 
@@ -42,9 +46,10 @@ module Game {
                     renderSystem
                 ];
 
-                // MessageSystems
+                // MessageSystems, die sich dann selbst beim MessageManager registrieren
                 var damageSystem = new Game.Systems.Damage();
                 var destroySystem = new Game.Systems.Destroy();
+                var lifetimeListenerSystem = new Game.Systems.LifetimeListener();
             }
         }
     }
