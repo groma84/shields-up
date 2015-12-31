@@ -1,0 +1,23 @@
+﻿html, body {
+    height: 100%;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+
+body {
+    display: table-cell;
+    vertical-align: middle;
+    background-color: black;
+}
+
+h1 {
+    text-align: center;
+    color: yellowgreen;
+}
+
+canvas {
+    border: 1px solid yellowgreen;
+}

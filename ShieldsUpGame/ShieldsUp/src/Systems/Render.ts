@@ -33,8 +33,8 @@ module Game {
                 entities.forEach((entity) => {
                     if (entity && (entity.Mask & (Game.Components.Type.Render || Game.Components.Type.RigidBody))) {
                         knownEntityIds.push(entity.Id);
-                        renderComponents[entity.Id] = <Components.Render>(entity.Components.filter((component) => (component.Mask & Game.Components.Type.Render) > 0)[0]); // wir brauchen immer nur die erste, gibt ja eh nur eine.
-                        rigidBodyComponents[entity.Id] = <Components.RigidBody>(entity.Components.filter((component) => (component.Mask & Game.Components.Type.RigidBody) > 0)[0]); // wir brauchen immer nur die erste, gibt ja eh nur eine.
+                        renderComponents[entity.Id] = entity.GetComponent<Components.Render>(Components.Type.Render);
+                        rigidBodyComponents[entity.Id] = entity.GetComponent<Components.RigidBody>(Components.Type.RigidBody);
                     }
                 });
 
@@ -58,9 +58,9 @@ module Game {
 
                 for (var i = 0; i < this._renderedObjects.length; ++i) {
                     if (this._renderedObjects[i]) {
-                        this._renderedObjects[i].scale = renderComponents[i].Scale;
-                        this._renderedObjects[i].x = rigidBodyComponents[i].X;
-                        this._renderedObjects[i].y = rigidBodyComponents[i].Y;
+                        this._renderedObjects[i].scale = new PIXI.Point(renderComponents[i].Scale.x * ScreenSettings.DisplayRatio, renderComponents[i].Scale.y * ScreenSettings.DisplayRatio);
+                        this._renderedObjects[i].x = rigidBodyComponents[i].X * ScreenSettings.DisplayRatio;
+                        this._renderedObjects[i].y = rigidBodyComponents[i].Y * ScreenSettings.DisplayRatio;
                     }
                 }
 

@@ -30,8 +30,8 @@ module Game {
             static MakeNewShield(spawnLocationNumber: number): void {
                 if (ShieldFactory._gameTime >= ShieldFactory._nextAllowedSpawnTime) {
                     var spawnLocation = ShieldFactory._spawnLocations[spawnLocationNumber],
-                        size = new Utils.Vector2(10, 30),
-                        render = new Game.Components.Render(Game.Assets.Definitions.Shield01, new PIXI.Point(1, 1)),
+                        size = new Utils.Vector2(ScreenSettings.Width / 120, ScreenSettings.Width / 40),
+                        render = new Game.Components.Render(Game.Assets.Definitions.Shield01, new PIXI.Point(size.X / Game.Assets.Definitions.Shield01.ImageSize.X, size.Y / Game.Assets.Definitions.Shield01.ImageSize.Y)),
                         rigidBody = new Game.Components.RigidBody(spawnLocation.X, spawnLocation.Y, size.X, size.Y),
                         collide = new Game.Components.Collide(spawnLocation.X, spawnLocation.Y, size.X, size.Y),
                         lifetime = new Game.Components.Lifetime(3),

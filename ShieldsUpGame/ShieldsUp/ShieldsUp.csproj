@@ -71,6 +71,7 @@
     <Content Include="assets\sprites\Blue-Planet-psd85316.png" />
     <Content Include="assets\sprites\meteor-01.png" />
     <Content Include="assets\sprites\shield-01.png" />
+    <Content Include="game.css" />
     <Content Include="lib\keypress-2.1.3.min.js" />
     <Content Include="packages.config" />
     <Content Include="lib\pixi.min.js.map" />
@@ -113,6 +114,7 @@
     <TypeScriptCompile Include="src\Messaging\MessageManager.ts" />
     <TypeScriptCompile Include="src\Messaging\Message.ts" />
     <TypeScriptCompile Include="src\Messaging\MessageType.ts" />
+    <TypeScriptCompile Include="src\ScreenSettings.ts" />
     <TypeScriptCompile Include="src\Setup.ts" />
     <TypeScriptCompile Include="src\Game.ts" />
     <TypeScriptCompile Include="src\Gameloop.ts" />
