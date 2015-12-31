@@ -36,6 +36,10 @@ module Game {
 
                                 // Kollision
                                 Messaging.MessageManager.Publish(Messaging.MessageType.Collision, new Messaging.CollisionMessage(rect1.Entity, rect2.Entity));
+
+                                if (DebugSettings.ShowCollisions) {
+                                    console.debug("CollisionAabb: " + rect1.Entity.Id + " collides with " + rect2.Entity.Id);
+                                }
                             }
                         }
                     });

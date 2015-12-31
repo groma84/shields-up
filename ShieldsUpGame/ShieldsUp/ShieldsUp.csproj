@@ -93,6 +93,7 @@
     <TypeScriptCompile Include="src\Assets\Sprites.ts" />
     <TypeScriptCompile Include="src\Components\Collide.ts" />
     <TypeScriptCompile Include="src\Components\Component.ts" />
+    <TypeScriptCompile Include="src\Components\MakesOthersBounce.ts" />
     <TypeScriptCompile Include="src\Components\Lifetime.ts" />
     <TypeScriptCompile Include="src\Components\Damage.ts" />
     <TypeScriptCompile Include="src\Components\Move.ts" />
@@ -120,6 +121,7 @@
     <Content Include="Web.config" />
     <TypeScriptCompile Include="src\Systems\Lifetime.ts" />
     <TypeScriptCompile Include="src\Systems\Destroy.ts" />
+    <TypeScriptCompile Include="src\Systems\BounceListener.ts" />
     <TypeScriptCompile Include="src\Systems\LifetimeListener.ts" />
     <TypeScriptCompile Include="src\Systems\ShieldFactory.ts" />
     <TypeScriptCompile Include="src\Systems\Initialize.ts" />

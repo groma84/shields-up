@@ -6,6 +6,7 @@
 /// <reference path="../Components/RigidBody.ts" />
 /// <reference path="../Components/Collide.ts" />
 /// <reference path="../Components/Lifetime.ts" />
+/// <reference path="../Components/MakesOthersBounce.ts" />
 
 module Game {
     export module Systems {
@@ -13,12 +14,12 @@ module Game {
             static _gameTime: number;
             static _nextAllowedSpawnTime: number;
             static _spawnLocations = [
-                new Utils.Vector2(50, 50),
-                new Utils.Vector2(50, 200),
-                new Utils.Vector2(50, 350),
-                new Utils.Vector2(750, 50),
-                new Utils.Vector2(750, 200),
-                new Utils.Vector2(750, 350),
+                new Utils.Vector2(350, 120),
+                new Utils.Vector2(350, 200),
+                new Utils.Vector2(350, 280),
+                new Utils.Vector2(550, 120),
+                new Utils.Vector2(550, 200),
+                new Utils.Vector2(550, 280),
             ];
 
             constructor() {
@@ -33,11 +34,12 @@ module Game {
                         render = new Game.Components.Render(Game.Assets.Definitions.Shield01, new PIXI.Point(1, 1)),
                         rigidBody = new Game.Components.RigidBody(spawnLocation.X, spawnLocation.Y, size.X, size.Y),
                         collide = new Game.Components.Collide(spawnLocation.X, spawnLocation.Y, size.X, size.Y),
-                        lifetime = new Game.Components.Lifetime(3);
+                        lifetime = new Game.Components.Lifetime(3),
+                        makesOthersBounce = new Components.MakesOthersBounce();
 
                     ShieldFactory._nextAllowedSpawnTime = (ShieldFactory._gameTime + 1);
 
-                    Game.ECS.Manager.AddEntity([render, rigidBody, collide, lifetime]);
+                    Game.ECS.Manager.AddEntity([render, rigidBody, collide, lifetime, makesOthersBounce]);
                 }
             }
 

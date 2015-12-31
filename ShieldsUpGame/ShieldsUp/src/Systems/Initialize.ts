@@ -1,18 +1,22 @@
 ﻿/// <reference path="Manager.ts" />
 /// <reference path="UpdateSystem.ts" />
 /// <reference path="RenderSystem.ts" />
+/// <reference path="MessageSystem.ts" />
 
 /// <reference path="EnemyFactory.ts" />
 /// <reference path="ShieldFactory.ts" />
 
-/// <reference path="Input.ts" />
-/// <reference path="Move.ts" />
 /// <reference path="CollisionAabb.ts" />
+/// <reference path="Input.ts" />
+/// <reference path="Lifetime.ts" />
+/// <reference path="Move.ts" />
 
 /// <reference path="Render.ts" />
 
+/// <reference path="BounceListener.ts" />
 /// <reference path="Damage.ts" />
 /// <reference path="Destroy.ts" />
+/// <reference path="LifetimeListener.ts" />
 
 
 module Game {
@@ -22,10 +26,10 @@ module Game {
                 // UpdateSystems
                 var enemyFactory = new Game.Systems.EnemyFactory(),
                     shieldFactory = new Game.Systems.ShieldFactory(),
-                    move = new Game.Systems.Move(),
                     collisionAabb = new Game.Systems.CollisionAabb(),
                     input = new Game.Systems.Input(),
-                    lifetime = new Game.Systems.Lifetime()
+                    lifetime = new Game.Systems.Lifetime(),
+                    move = new Game.Systems.Move()
                     ;
 
                 // werden zuerst ausgefuehrt, und zwar in der Reihenfolge, in der sie im Array stecken
@@ -47,6 +51,7 @@ module Game {
                 ];
 
                 // MessageSystems, die sich dann selbst beim MessageManager registrieren
+                var bounceListener = new Game.Systems.BounceListener();
                 var damageSystem = new Game.Systems.Damage();
                 var destroySystem = new Game.Systems.Destroy();
                 var lifetimeListenerSystem = new Game.Systems.LifetimeListener();

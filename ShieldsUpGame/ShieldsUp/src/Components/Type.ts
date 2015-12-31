@@ -9,6 +9,7 @@
             Health = 32,
             Damage = 64,
             Lifetime = 128,
+            MakesOthersBounce = 256,
         }
     }
 }
