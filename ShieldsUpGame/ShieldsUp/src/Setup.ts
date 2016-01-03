@@ -32,7 +32,7 @@ module Game {
             var position = new Utils.Vector2(ScreenSettings.Width / 2, ScreenSettings.Height / 2), // genau in der Mitte
                 size = new Utils.Vector2(ScreenSettings.Width / 6, ScreenSettings.Width / 6),
                 rigidBody = new Game.Components.RigidBody(position.X, position.Y, size.X, size.Y),
-                collide = new Game.Components.Collide(position.X, position.Y, size.X * 0.9, size.Y * 0.9), // ein bisschen kleinere Hitbox als Grafik
+                collide = new Game.Components.Collide(position.X, position.Y, size.X * 0.8, size.Y * 0.8), // ein bisschen kleinere Hitbox als Grafik
                 render = new Game.Components.Render(Game.Assets.Definitions.Planet, new PIXI.Point(size.X / Game.Assets.Definitions.Planet.ImageSize.X, size.Y / Game.Assets.Definitions.Planet.ImageSize.Y)),
                 health = new Game.Components.Health(1),
                 player = new Game.Components.Player();

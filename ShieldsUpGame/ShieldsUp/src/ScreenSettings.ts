@@ -14,5 +14,9 @@
             ScreenSettings.Height = Math.min(ScreenSettings._maxHeight, Math.max(window.innerHeight, ScreenSettings._minHeight));
             ScreenSettings.DisplayRatio = Math.min(ScreenSettings.Width / ScreenSettings._maxWidth, ScreenSettings.Height / ScreenSettings._maxHeight);
         }
+
+        static Recalculate() {
+            // TODO: Alle Komponenten, die davon betroffen sind, abrufen, und die Werte entsprechend anpassen, also erst alle DisplayRatio rausrechnen, und dann neue rein
+        }
     }
 }

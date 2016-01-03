@@ -12,8 +12,9 @@ module Game {
             constructor(x: number, y: number, xSize: number, ySize: number) {
                 super(Game.Components.Type.Collide);
 
-                this.X = x;
-                this.Y = y;
+                // hier tun wir uns leichter, wenn wir den Anchor nach LinksOben setzen, statt in die Mitte
+                this.X = x - xSize/2;
+                this.Y = y - ySize/2;
                 this.XSize = xSize;
                 this.YSize = ySize;
             }

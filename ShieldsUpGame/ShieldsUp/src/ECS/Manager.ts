@@ -6,7 +6,7 @@ module Game {
         export class Manager {
             static Entities: Entity[];
             static get DefinedEntities(): Entity[] {
-                return this.Entities.filter((item) => !!item);
+                return Manager.Entities.filter((item) => !!item);
             }
 
             static AddEntity(initialComponents: Components.Component[]): number {

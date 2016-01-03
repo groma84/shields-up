@@ -1,8 +1,6 @@
 ﻿# NEXT
 
 # LATER
-1. Render System so erweitern, dass wir bei Bedarf auch die Collision Bodies malen koennen
-1. Collision vom Planeten ueberpruefen und ggf. fixen
 1. Resize-Event Unterstützung
 1. Spawnpunkte Schilde an die richtige Stelle setzen
 1. Rund um das Spielfeld sollte es eine Barriere geben (außerhalb angezeigtem Bereich), die dann die Meteoriten tatsächlich zerstört

@@ -1,5 +1,6 @@
 ﻿/// <reference path="../../lib/pixi.js.d.ts" />
 /// <reference path="RenderOptions.ts" />
+/// <reference path="../DebugSettings.ts" />
 /// <reference path="../ECS/Entity.ts" />
 /// <reference path="../Assets/Sprites.ts" />
 /// <reference path="../Components/Type.ts" />
@@ -15,6 +16,8 @@ module Game {
             private _knownEntityIdsOld: number[];
             private _renderedObjects: PIXI.DisplayObject[];
 
+            private _collisionBodyContainer: PIXI.Container;
+
             constructor(options: RenderOptions) {
                 this._renderer = PIXI.autoDetectRenderer(options.XSize, options.YSize);
                 this._stage = new PIXI.Container();
@@ -26,6 +29,16 @@ module Game {
             }
 
             Run(dt: number, entities: ECS.Entity[]) {
+                this.Render(dt, entities);
+
+                if (DebugSettings.DrawCollisonBodies) {
+                    this.DrawCollisionBodies(dt, entities, this._stage);
+                }
+
+                this._renderer.render(this._stage);
+            }
+
+            private Render(dt: number, entities: ECS.Entity[]) {
                 var knownEntityIds: number[] = [];
                 var renderComponents: Components.Render[] = [];
                 var rigidBodyComponents: Components.RigidBody[] = [];
@@ -57,15 +70,46 @@ module Game {
                 });
 
                 for (var i = 0; i < this._renderedObjects.length; ++i) {
-                    if (this._renderedObjects[i]) {
-                        this._renderedObjects[i].scale = new PIXI.Point(renderComponents[i].Scale.x * ScreenSettings.DisplayRatio, renderComponents[i].Scale.y * ScreenSettings.DisplayRatio);
-                        this._renderedObjects[i].x = rigidBodyComponents[i].X * ScreenSettings.DisplayRatio;
-                        this._renderedObjects[i].y = rigidBodyComponents[i].Y * ScreenSettings.DisplayRatio;
+                    if (this._renderedObjects[i] && renderComponents[i] && rigidBodyComponents[i]) {
+                        this._renderedObjects[i].scale = renderComponents[i].Scale;
+                        this._renderedObjects[i].x = rigidBodyComponents[i].X;
+                        this._renderedObjects[i].y = rigidBodyComponents[i].Y;
                     }
                 }
 
                 this._knownEntityIdsOld = knownEntityIds;
-                this._renderer.render(this._stage);
+            }
+
+            private DrawCollisionBodies(dt: number, entities: ECS.Entity[], stage: PIXI.Container) {
+                if (this._collisionBodyContainer) {
+                    this._stage.removeChild(this._collisionBodyContainer);
+                }
+
+                var collisionBodyContainer = new PIXI.Container();
+                var collisionBodiesToDraw: Components.Collide[] = [];
+
+                entities.forEach((entity) => {
+                    if (entity && (entity.Mask & (Game.Components.Type.Collide))) {
+                        collisionBodiesToDraw.push(entity.GetComponent<Components.Collide>(Components.Type.Collide));
+                    }
+                });
+
+                collisionBodiesToDraw.forEach((body) => {
+                    var graphics = new PIXI.Graphics();
+
+                    //graphics.beginFill(0xFFFF00);
+
+                    // set the line style to have a width of 5 and set the color to red
+                    graphics.lineStyle(1, 0xFF0000);
+
+                    // draw a rectangle
+                    graphics.drawRect(body.X, body.Y, body.XSize, body.YSize);
+                    
+                    collisionBodyContainer.addChild(graphics);
+                });
+
+                this._collisionBodyContainer = collisionBodyContainer;
+                stage.addChild(collisionBodyContainer);
             }
         }
     }
