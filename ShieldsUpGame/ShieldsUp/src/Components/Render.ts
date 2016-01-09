@@ -18,6 +18,10 @@ module Game {
 
                 this.Scale = scale;
             }
+
+            OnWindowSizeChanged(oldScalingFactor: number, newScalingFactor: number) {
+                this.Scale = new PIXI.Point(this.Scale.x / oldScalingFactor * newScalingFactor, this.Scale.y / oldScalingFactor * newScalingFactor);
+            }
         }
     }
 }

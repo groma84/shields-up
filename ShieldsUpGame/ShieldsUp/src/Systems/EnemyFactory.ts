@@ -34,7 +34,7 @@ module Game {
                     rigidBody = new Game.Components.RigidBody(spawnLocation.X, spawnLocation.Y, size.X, size.Y),
                     collide = new Game.Components.Collide(spawnLocation.X, spawnLocation.Y, size.X, size.Y),
                     movementVector = new Game.Utils.Vector2(target.X - spawnLocation.X, target.Y - spawnLocation.Y).GetNormalized(),
-                    move = new Game.Components.Move(Math.ceil(Math.random() * 20 + 30), movementVector),
+                    move = new Game.Components.Move(Math.ceil(Math.random() * 20 + 30) * ScreenSettings.ScalingFactor, movementVector),
                     health = new Game.Components.Health(1),
                     damage = new Game.Components.Damage(1);
 

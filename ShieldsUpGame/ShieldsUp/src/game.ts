@@ -16,7 +16,11 @@ module Game {
 
     if (window.attachEvent) {
         window.attachEvent('onload', initialRunner);
-    } else {
+        window.attachEvent('onresize', function () {
+            Game.ScreenSettings.Recalculate()
+        });
+    }
+    else {
         if (window.onload) {
             var curronload = window.onload;
             var newonload = function (evt) {
@@ -27,5 +31,9 @@ module Game {
         } else {
             window.onload = initialRunner;
         }
+
+        window.onresize = function (event) {
+            Game.ScreenSettings.Recalculate();
+        };
     }
 })();

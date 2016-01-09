@@ -1,7 +1,6 @@
 ﻿# NEXT
 
 # LATER
-1. Resize-Event Unterstützung
 1. Spawnpunkte Schilde an die richtige Stelle setzen
 1. Rund um das Spielfeld sollte es eine Barriere geben (außerhalb angezeigtem Bereich), die dann die Meteoriten tatsächlich zerstört
 1. Spawnpunkte der Meteoriten so anpassen, dass sie gut die Schilde treffen, aber außerhalb des sichtbaren Bereichs spawnen

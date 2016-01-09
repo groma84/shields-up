@@ -4,6 +4,7 @@ module Game {
     export module Systems {
         export interface RenderSystem {
             Run: (dt: number, entities: Game.ECS.Entity[]) => void;
+            Resize: (options: RenderOptions) => void;
         }
     }
 }

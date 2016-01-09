@@ -14,6 +14,10 @@ module Game {
                 this.Velocity = velocity;
                 this.Direction = direction;
             }
+
+            OnWindowSizeChanged(oldScalingFactor: number, newScalingFactor: number) {
+                this.Velocity = (this.Velocity / oldScalingFactor * newScalingFactor);
+            }
         }
     }
 }

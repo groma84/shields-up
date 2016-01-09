@@ -11,6 +11,9 @@ module Game {
 
                 this.Health = startHealth;
             }
+
+            OnWindowSizeChanged(oldScalingFactor: number, newScalingFactor: number) {
+            }
         }
     }
 }

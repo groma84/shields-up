@@ -8,6 +8,10 @@ module Game {
             constructor() {
                 super(Game.Components.Type.Player);
             }
+
+
+            OnWindowSizeChanged(oldScalingFactor: number, newScalingFactor: number) {
+            }
         }
     }
 }

@@ -25,7 +25,17 @@ module Game {
                 this._knownEntityIdsOld = [];
                 this._renderedObjects = [];
 
-                document.body.appendChild(this._renderer.view);
+                document.getElementById("game").appendChild(this._renderer.view);
+            }
+
+            Resize(options: RenderOptions) {
+                //this._knownEntityIdsOld = [];
+                //this._renderedObjects = [];
+
+                this._renderer.view.style.width = options.XSize + 'px';
+                this._renderer.view.style.height = options.YSize + 'px';
+
+                this._renderer.resize(options.XSize, options.YSize);
             }
 
             Run(dt: number, entities: ECS.Entity[]) {

@@ -17,6 +17,14 @@ module Game {
                 this.XSize = xSize;
                 this.YSize = ySize;
             }
+
+
+            OnWindowSizeChanged(oldScalingFactor: number, newScalingFactor: number) {
+                this.X = (this.X / oldScalingFactor * newScalingFactor);
+                this.Y = (this.Y / oldScalingFactor * newScalingFactor);
+                this.XSize = (this.XSize / oldScalingFactor * newScalingFactor);
+                this.YSize = (this.YSize / oldScalingFactor * newScalingFactor);
+            }
         }
     }
 }

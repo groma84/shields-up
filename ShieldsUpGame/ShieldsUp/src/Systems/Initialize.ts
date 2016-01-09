@@ -43,7 +43,7 @@ module Game {
                 ];
 
                 // RenderSystems, die nach den UpdateSystems ausgefuehrt werden
-                var options = new Game.Systems.RenderOptions(Game.ScreenSettings.Width, Game.ScreenSettings.Height, Game.ScreenSettings.DisplayRatio);
+                var options = new Game.Systems.RenderOptions(Game.ScreenSettings.Width, Game.ScreenSettings.Height, Game.ScreenSettings.ScalingFactor);
                 var renderSystem = new Game.Systems.Render(options);
 
                 Game.Systems.Manager.RenderSystems = [

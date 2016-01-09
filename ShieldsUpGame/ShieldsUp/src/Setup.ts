@@ -57,8 +57,6 @@ module Game {
             Game.ScreenSettings.Calculate();
             
             // Hintergrundbild mit Musik einfügen
-            // TODO: Components body (mit position und size), render (mit Grafik und Skalierung), sound (mit Audio-File, Volume und Loop), movement (mit velocity und direction)
-            // TODO: Systems (Rendering, Audio, Physics)
             Game.ECS.Manager.AddEntity(this.createBackgroundComponents());
             Game.ECS.Manager.AddEntity(this.createPlanet());
 

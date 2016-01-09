@@ -11,6 +11,9 @@ module Game {
 
                 this.DamagePerHit = damagePerHit;
             }
+
+            OnWindowSizeChanged(oldScalingFactor: number, newScalingFactor: number) {
+            }
         }
     }
 }

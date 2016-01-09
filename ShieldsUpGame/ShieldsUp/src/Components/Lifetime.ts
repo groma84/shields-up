@@ -11,6 +11,10 @@ module Game {
 
                 this.LifetimeInSeconds = lifetimeInSeconds;
             }
+
+
+            OnWindowSizeChanged(oldScalingFactor: number, newScalingFactor: number) {
+            }
         }
     }
 }

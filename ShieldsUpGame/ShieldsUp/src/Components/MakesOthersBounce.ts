@@ -11,6 +11,10 @@ module Game {
 
                 this.AlreadyBouncedEntities = [];
             }
+
+
+            OnWindowSizeChanged(oldScalingFactor: number, newScalingFactor: number) {
+            }
         }
     }
 }
