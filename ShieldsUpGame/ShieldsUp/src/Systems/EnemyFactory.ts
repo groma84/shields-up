@@ -32,9 +32,9 @@ module Game {
                 var size = new Utils.Vector2(ScreenSettings.Width / 20, ScreenSettings.Width / 20),
                     render = new Game.Components.Render(Game.Assets.Definitions.Meteor01, new PIXI.Point(size.X / Game.Assets.Definitions.Meteor01.ImageSize.X, size.Y / Game.Assets.Definitions.Meteor01.ImageSize.Y)),
                     rigidBody = new Game.Components.RigidBody(spawnLocation.X, spawnLocation.Y, size.X, size.Y),
-                    collide = new Game.Components.Collide(spawnLocation.X, spawnLocation.Y, size.X, size.Y),
+                    collide = new Game.Components.Collide(spawnLocation.X, spawnLocation.Y, size.X * 0.9, size.Y * 0.9),
                     movementVector = new Game.Utils.Vector2(target.X - spawnLocation.X, target.Y - spawnLocation.Y).GetNormalized(),
-                    move = new Game.Components.Move(Math.ceil(Math.random() * 20 + 30) * ScreenSettings.ScalingFactor, movementVector),
+                    move = new Game.Components.Move(Math.ceil(Math.random() * 20 + 40) * ScreenSettings.ScalingFactor, movementVector),
                     health = new Game.Components.Health(1),
                     damage = new Game.Components.Damage(1);
 

@@ -28,20 +28,24 @@
 
             ScreenSettings.Calculate();
 
-            ECS.Manager.DefinedEntities.forEach(entity => {
-                entity.Components.forEach(component => {
-                    if (component.OnWindowSizeChanged) {
-                        component.OnWindowSizeChanged(oldFactor, ScreenSettings.ScalingFactor);
+            if (ECS.Manager.DefinedEntities) {
+                ECS.Manager.DefinedEntities.forEach(entity => {
+                    entity.Components.forEach(component => {
+                        if (component.OnWindowSizeChanged) {
+                            component.OnWindowSizeChanged(oldFactor, ScreenSettings.ScalingFactor);
+                        }
+                    });
+                });
+            }
+
+            if (Game.Systems.Manager.RenderSystems) {
+                var newOptions = new Systems.RenderOptions(ScreenSettings.Width, ScreenSettings.Height, ScreenSettings.ScalingFactor);
+                Game.Systems.Manager.RenderSystems.forEach(renderSystem => {
+                    if (renderSystem.Resize) {
+                        renderSystem.Resize(newOptions);
                     }
                 });
-            });
-
-            var newOptions = new Systems.RenderOptions(ScreenSettings.Width, ScreenSettings.Height, ScreenSettings.ScalingFactor);
-            Game.Systems.Manager.RenderSystems.forEach(renderSystem => {
-                if (renderSystem.Resize) {
-                    renderSystem.Resize(newOptions);
-                }
-            });
+            }
         }
     }
 }
