@@ -1,7 +1,8 @@
 ﻿# NEXT
 
 # LATER
-1. Spawnpunkte der Meteoriten so anpassen, dass sie gut die Schilde treffen, aber außerhalb des sichtbaren Bereichs spawnen
+1. Fade In Fade Out implementieren (Schild baut sich ab)
+1. Animationen implementieren (Meteor trifft Meteor, Meteor trifft Planet)
 2. Punktezähler implementieren
 3. Game-Over Screen implementieren
 5. Start-Menü implementieren

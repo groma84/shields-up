@@ -1,6 +1,6 @@
 ﻿module Game {
     export class DebugSettings {
-        static ShowDamage: boolean = false;
+        static ShowDamage: boolean = true;
         static ShowCollisions: boolean = false;
         static DrawCollisonBodies: boolean = false;
 

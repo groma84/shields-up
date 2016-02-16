@@ -14,22 +14,41 @@ module Game {
         export class EnemyFactory implements UpdateSystem {
             private _gameTime: number;
             private _nextSpawnTime: number;
-            private _spawnLocations = [
-                new Utils.Vector2(50, 50),
-                new Utils.Vector2(50, 200),
-                new Utils.Vector2(50, 350),
-                new Utils.Vector2(750, 50),
-                new Utils.Vector2(750, 200),
-                new Utils.Vector2(750, 350),
-            ];
+
 
             constructor() {
                 this._gameTime = 0;
                 this._nextSpawnTime = 1;
             }
 
-            private MakeNewMeteor(spawnLocation: Utils.Vector2, target: Utils.Vector2): Game.Components.Component[] {
+            Run(step: number, entities: ECS.Entity[]) {
+                if (this._gameTime > this._nextSpawnTime) {
+                    var target = entities.filter((item) => (item.Mask & (Components.Type.Player)) > 0)[0];
+
+                    if (target) {
+                        var targetBody = target.GetComponent<Components.RigidBody>(Components.Type.RigidBody);
+
+                        var spawnLocationNumber = Math.floor(Math.random() * 6);
+                        ECS.Manager.AddEntity(this.MakeNewMeteor(spawnLocationNumber, new Utils.Vector2(targetBody.X, targetBody.Y)));
+                    }
+
+                    this._nextSpawnTime += Math.random() * 10;
+                }
+
+                this._gameTime += step;
+            }
+
+            private MakeNewMeteor(spawnLocationNumber: number, target: Utils.Vector2): Game.Components.Component[] {
                 var size = new Utils.Vector2(ScreenSettings.Width / 20, ScreenSettings.Width / 20),
+                    spawnOffsets = [
+                        new Utils.Vector2(-(ScreenSettings.Width / 2 + size.X), -(ScreenSettings.Height / 2 + size.Y)),
+                        new Utils.Vector2(-(ScreenSettings.Width / 2 + size.X), 0),
+                        new Utils.Vector2(-(ScreenSettings.Width / 2 + size.X), (ScreenSettings.Height / 2 + size.Y)),
+                        new Utils.Vector2((ScreenSettings.Width / 2 + size.X), -(ScreenSettings.Height / 2 + size.Y)),
+                        new Utils.Vector2((ScreenSettings.Width / 2 + size.X), 0),
+                        new Utils.Vector2((ScreenSettings.Width / 2 + size.X), (ScreenSettings.Height / 2 + size.Y)),
+                    ],
+                    spawnLocation = this.CalculateSpawnPosition(spawnLocationNumber, spawnOffsets),
                     render = new Game.Components.Render(Game.Assets.Definitions.Meteor01, new PIXI.Point(size.X / Game.Assets.Definitions.Meteor01.ImageSize.X, size.Y / Game.Assets.Definitions.Meteor01.ImageSize.Y)),
                     rigidBody = new Game.Components.RigidBody(spawnLocation.X, spawnLocation.Y, size.X, size.Y),
                     collide = new Game.Components.Collide(spawnLocation.X, spawnLocation.Y, size.X * 0.9, size.Y * 0.9),
@@ -41,21 +60,24 @@ module Game {
                 return [render, rigidBody, move, collide, health, damage];
             }
 
-            Run(step: number, entities: ECS.Entity[]) {
-                if (this._gameTime > this._nextSpawnTime) {
-                    var target = entities.filter((item) => (item.Mask & (Components.Type.Player)) > 0)[0];
+            private CalculateSpawnPosition(spawnLocationNumber: number, spawnOffsets: Utils.Vector2[]) {
+                var baseOffsetFromPlanet = spawnOffsets[spawnLocationNumber];
 
-                    if (target) {
-                        var targetBody = target.GetComponent<Components.RigidBody>(Components.Type.RigidBody);
+                var player = Game.ECS.Manager.DefinedEntities.filter((item) => (item.Mask & (Components.Type.Player)) > 0)[0];
 
-                        var spawnLocation = Math.floor(Math.random() * 6);
-                        ECS.Manager.AddEntity(this.MakeNewMeteor(this._spawnLocations[spawnLocation], new Utils.Vector2(targetBody.X, targetBody.Y)));
-                    }
+                if (player) {
+                    var targetBody = player.GetComponent<Components.RigidBody>(Components.Type.RigidBody);
 
-                    this._nextSpawnTime += Math.random() * 10;
+                    // in Y-Richtung beruecksichtigen wir die Groesse des Planeten nicht
+                    var y = (targetBody.Y + baseOffsetFromPlanet.Y) * ScreenSettings.ScalingFactor;
+
+                    // in X-Richtung muessen wir erstmal um die Planetenbreite in die richtige Richtung verschieben, und dann unser Offset anwenden
+                    var x = (targetBody.X + baseOffsetFromPlanet.X + (baseOffsetFromPlanet.X < 0 ? -(targetBody.XSize / 2) : (targetBody.XSize / 2))) * ScreenSettings.ScalingFactor;
+
+                    return new Utils.Vector2(x, y);
                 }
 
-                this._gameTime += step;
+                return baseOffsetFromPlanet; // falls gar kein Player gefunden wurde, ist eh alles egal
             }
         }
     }

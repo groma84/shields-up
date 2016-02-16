@@ -41,16 +41,16 @@ module Game {
         }
 
         private createMeteorCrushingInvisibleWalls(): void {
-            var offset = 100,
+            var offset = 4 * ScreenSettings.Width / 20,
                 positionsAndSizes = [
-                    { pos: new Utils.Vector2(ScreenSettings.Width / 2 , - offset), size: new Utils.Vector2(ScreenSettings.Width + 2 * offset, 1) }, // oben
-                    { pos: new Utils.Vector2(ScreenSettings.Width + offset, ScreenSettings.Height / 2), size: new Utils.Vector2(1, ScreenSettings.Height + 2 * offset - offset/2) }, // rechts
+                    { pos: new Utils.Vector2(ScreenSettings.Width / 2, - offset), size: new Utils.Vector2(ScreenSettings.Width + 2 * offset, 1) }, // oben
+                    { pos: new Utils.Vector2(ScreenSettings.Width + offset, ScreenSettings.Height / 2), size: new Utils.Vector2(1, ScreenSettings.Height + 2 * offset - offset / 2) }, // rechts
                     { pos: new Utils.Vector2(ScreenSettings.Width / 2, ScreenSettings.Height + offset), size: new Utils.Vector2(ScreenSettings.Width + 2 * offset, 1) }, // unten
-                    { pos: new Utils.Vector2(- offset, ScreenSettings.Height / 2), size: new Utils.Vector2(1, ScreenSettings.Height + 2 * offset - offset/2) }, // links
+                    { pos: new Utils.Vector2(- offset, ScreenSettings.Height / 2), size: new Utils.Vector2(1, ScreenSettings.Height + 2 * offset - offset / 2) }, // links
                 ];
 
             positionsAndSizes.forEach(ps => {
-                var collide = new Game.Components.Collide(ps.pos.X , ps.pos.Y, ps.size.X, ps.size.Y),
+                var collide = new Game.Components.Collide(ps.pos.X, ps.pos.Y, ps.size.X, ps.size.Y),
                     damage = new Game.Components.Damage(1);
                 Game.ECS.Manager.AddEntity([collide, damage]);
             });
