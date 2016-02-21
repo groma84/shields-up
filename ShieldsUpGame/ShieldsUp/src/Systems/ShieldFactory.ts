@@ -14,12 +14,12 @@ module Game {
             static _gameTime: number;
             static _nextAllowedSpawnTime: number;
             static _spawnOffsets = [
-                new Utils.Vector2(-90, -150),
+                new Utils.Vector2(-90, -120),
                 new Utils.Vector2(-90, 0),
-                new Utils.Vector2(-90, 150),
-                new Utils.Vector2(90, -150),
+                new Utils.Vector2(-90, 120),
+                new Utils.Vector2(90, -120),
                 new Utils.Vector2(90, 0),
-                new Utils.Vector2(90, 150),
+                new Utils.Vector2(90, 120),
             ];
 
             constructor() {
