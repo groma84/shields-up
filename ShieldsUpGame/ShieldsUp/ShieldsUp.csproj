@@ -94,6 +94,7 @@
     <TypeScriptCompile Include="src\Assets\Sprites.ts" />
     <TypeScriptCompile Include="src\Components\Collide.ts" />
     <TypeScriptCompile Include="src\Components\Component.ts" />
+    <TypeScriptCompile Include="src\Components\GivesPoints.ts" />
     <TypeScriptCompile Include="src\Components\MakesOthersBounce.ts" />
     <TypeScriptCompile Include="src\Components\Lifetime.ts" />
     <TypeScriptCompile Include="src\Components\Damage.ts" />
@@ -108,6 +109,7 @@
     <TypeScriptCompile Include="src\GameloopOptions.ts" />
     <TypeScriptCompile Include="src\Input\Inputs.ts" />
     <TypeScriptCompile Include="src\Input\KeyboardInputMapping.ts" />
+    <TypeScriptCompile Include="src\Messaging\PointsChangedMessage.ts" />
     <TypeScriptCompile Include="src\Messaging\LifetimeEndsMessage.ts" />
     <TypeScriptCompile Include="src\Messaging\HealthChangedMessage.ts" />
     <TypeScriptCompile Include="src\Messaging\CollisionMessage.ts" />
@@ -125,6 +127,7 @@
     <TypeScriptCompile Include="src\Systems\Destroy.ts" />
     <TypeScriptCompile Include="src\Systems\BounceListener.ts" />
     <TypeScriptCompile Include="src\Systems\LifetimeListener.ts" />
+    <TypeScriptCompile Include="src\Systems\ScoreChangedListener.ts" />
     <TypeScriptCompile Include="src\Systems\ShieldFactory.ts" />
     <TypeScriptCompile Include="src\Systems\Initialize.ts" />
     <TypeScriptCompile Include="src\Input\KeyboardInputHandler.ts" />

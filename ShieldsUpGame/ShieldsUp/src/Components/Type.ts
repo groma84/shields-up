@@ -10,6 +10,7 @@
             Damage = 64,
             Lifetime = 128,
             MakesOthersBounce = 256,
+            GivesPoints = 512,
         }
     }
 }

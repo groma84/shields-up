@@ -1,8 +1,19 @@
 ﻿# NEXT
+2. Punktezähler implementieren
+    - GivesPoints-Component
+    - OnDestroy-System erweitern (Punkte geben an zerstörenden Player)
+    - MessageHandler für PunkteVergeben
+    - Unterstützung für TextComponent(?) in Rendering
+    - Anbindung Score Changed an Text ändern
+    - Neue Dateien in index.html einfügen
+
 
 # LATER
 
-2. Punktezähler implementieren
+1. Pause-Menü implementieren    
+    - wie hält man den GameLoop so an, dass er trotzdem auf Eingaben reagiert?
+    - Idee: Spiel wird angehalten, Canvas wird via CSS ausgegraut, eigentliches Menü wird via HTML drüber gelegt?
+    - Außerdem in diesem Zuge: Wenn Spiel angehalten wird, wird es auch gleich im LocalStorage gespeichert - wie stellen wir das Spiel von dort wieder her? Vor allem die GameTime macht mir Sorgen...
 3. Game-Over Screen implementieren
 5. Start-Menü implementieren
 4. Sound implementieren

@@ -16,8 +16,22 @@ module Game {
                 var typed = <Messaging.HealthChangedMessage>message;
 
                 if (typed.NewHealth <= 0) {
-                    ECS.Manager.RemoveEntity(typed.Entity.Id);
+                    this.DestroyEntity(typed.Entity);
                 }
+            }
+
+            DestroyEntity(entity: ECS.Entity): void {
+                var givesPoints = entity.GetComponent<Components.GivesPoints>(Components.Type.GivesPoints);
+                var player = ECS.Manager.DefinedEntities.filter((item) => (item.Mask & (Components.Type.Player)) > 0)[0];
+
+                if (player && givesPoints) {
+                    var typedPlayer = player.GetComponent<Components.Player>(Components.Type.Player);
+                    typedPlayer.Score += givesPoints.Points;
+
+                    Messaging.MessageManager.Publish(Messaging.MessageType.PointsChanged, new Messaging.PointsChangedMessage(player, entity, typedPlayer.Score));
+                }
+
+                ECS.Manager.RemoveEntity(entity.Id);
             }
         }
     }
