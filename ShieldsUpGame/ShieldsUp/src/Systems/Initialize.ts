@@ -17,6 +17,7 @@
 /// <reference path="Damage.ts" />
 /// <reference path="Destroy.ts" />
 /// <reference path="LifetimeListener.ts" />
+/// <reference path="ScoreChangedListener.ts" />
 
 
 module Game {
@@ -55,6 +56,7 @@ module Game {
                 var damageSystem = new Game.Systems.Damage();
                 var destroySystem = new Game.Systems.Destroy();
                 var lifetimeListenerSystem = new Game.Systems.LifetimeListener();
+                var scoreChangedListenerSystem = new Game.Systems.ScoreChangedListener();
             }
         }
     }

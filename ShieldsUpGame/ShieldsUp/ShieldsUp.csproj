@@ -109,7 +109,7 @@
     <TypeScriptCompile Include="src\GameloopOptions.ts" />
     <TypeScriptCompile Include="src\Input\Inputs.ts" />
     <TypeScriptCompile Include="src\Input\KeyboardInputMapping.ts" />
-    <TypeScriptCompile Include="src\Messaging\PointsChangedMessage.ts" />
+    <TypeScriptCompile Include="src\Messaging\ScoreChangedMessage.ts" />
     <TypeScriptCompile Include="src\Messaging\LifetimeEndsMessage.ts" />
     <TypeScriptCompile Include="src\Messaging\HealthChangedMessage.ts" />
     <TypeScriptCompile Include="src\Messaging\CollisionMessage.ts" />

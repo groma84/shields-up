@@ -4,16 +4,16 @@
 
 module Game {
     export module Messaging {
-        export class PointsChangedMessage extends Message {
+        export class ScoreChangedMessage extends Message {
             Player: ECS.Entity;
-            PointsChangedByEntity: ECS.Entity;
+            ScoreChangedByEntity: ECS.Entity;
             NewScore: number;
 
-            constructor(player: ECS.Entity, pointsChangedByEntity: ECS.Entity, newScore: number) {
-                super(MessageType.PointsChanged);
+            constructor(player: ECS.Entity, scoreChangedByEntity: ECS.Entity, newScore: number) {
+                super(MessageType.ScoreChanged);
 
                 this.Player = player;
-                this.PointsChangedByEntity = pointsChangedByEntity;
+                this.ScoreChangedByEntity = scoreChangedByEntity;
                 this.NewScore = newScore;
             }
         }

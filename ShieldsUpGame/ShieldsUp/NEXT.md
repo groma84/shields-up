@@ -1,8 +1,5 @@
 ﻿# NEXT
 2. Punktezähler implementieren
-    - GivesPoints-Component
-    - OnDestroy-System erweitern (Punkte geben an zerstörenden Player)
-    - MessageHandler für PunkteVergeben
     - Unterstützung für TextComponent(?) in Rendering
     - Anbindung Score Changed an Text ändern
     - Neue Dateien in index.html einfügen

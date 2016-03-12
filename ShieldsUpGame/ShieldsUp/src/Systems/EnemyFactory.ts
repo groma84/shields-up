@@ -8,6 +8,7 @@
 /// <reference path="../Components/Move.ts" />
 /// <reference path="../Components/Health.ts" />
 /// <reference path="../Components/Damage.ts" />
+/// <reference path="../Components/GivesPoints.ts" />
 
 module Game {
     export module Systems {
@@ -63,9 +64,10 @@ module Game {
                     movementVector = new Game.Utils.Vector2(target.X - spawnLocation.X, target.Y - spawnLocation.Y).GetNormalized(),
                     move = new Game.Components.Move(moveSpeed * ScreenSettings.ScalingFactor, movementVector),
                     health = new Game.Components.Health(1),
-                    damage = new Game.Components.Damage(1);
+                    damage = new Game.Components.Damage(1),
+                    givesPoints = new Game.Components.GivesPoints(1);
 
-                return [render, rigidBody, move, collide, health, damage];
+                return [render, rigidBody, move, collide, health, damage, givesPoints];
             }
 
             private GetRandomSpawnLocationIndexButNotTheSameAsLastTime(): number {

@@ -28,7 +28,7 @@ module Game {
                     var typedPlayer = player.GetComponent<Components.Player>(Components.Type.Player);
                     typedPlayer.Score += givesPoints.Points;
 
-                    Messaging.MessageManager.Publish(Messaging.MessageType.PointsChanged, new Messaging.PointsChangedMessage(player, entity, typedPlayer.Score));
+                    Messaging.MessageManager.Publish(Messaging.MessageType.ScoreChanged, new Messaging.ScoreChangedMessage(player, entity, typedPlayer.Score));
                 }
 
                 ECS.Manager.RemoveEntity(entity.Id);

@@ -4,7 +4,7 @@
             Collision = 1,
             HealthChanged = 2,
             LifetimeEnds,
-            PointsChanged,
+            ScoreChanged,
         }
     }
 }
