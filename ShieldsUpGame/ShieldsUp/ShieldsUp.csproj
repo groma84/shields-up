@@ -144,6 +144,9 @@
     <TypeScriptCompile Include="src\Systems\RenderSystem.ts" />
     <TypeScriptCompile Include="src\Systems\UpdateSystem.ts" />
     <TypeScriptCompile Include="src\Input\DefaultKeyboardInputMap.ts" />
+    <TypeScriptCompile Include="src\UI\InitializeUI.ts" />
+    <TypeScriptCompile Include="src\UI\Items.ts" />
+    <TypeScriptCompile Include="src\UI\Text.ts" />
     <TypeScriptCompile Include="src\Utils\Vector2.ts" />
   </ItemGroup>
   <ItemGroup>

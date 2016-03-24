@@ -3,6 +3,8 @@
 /// <reference path="../Messaging/MessageType.ts" />
 /// <reference path="../Messaging/MessageManager.ts" />
 /// <reference path="../Messaging/ScoreChangedMessage.ts" />
+/// <reference path="../UI/Items.ts" />
+/// <reference path="../UI/Text.ts" />
 
 module Game {
     export module Systems {
@@ -13,9 +15,9 @@ module Game {
 
             Receive(message: Messaging.Message) {
                 var typed = <Messaging.ScoreChangedMessage>message;
-                
-                // TODO: User Interface aktualisieren
+                             
                 console.debug("Score of #" + typed.Player.Id + " changed by #" + typed.ScoreChangedByEntity.Id + ". New score: " + typed.NewScore);
+                UI.Items.PlayerScore.Text = typed.NewScore.toString();
             }
         }
     }

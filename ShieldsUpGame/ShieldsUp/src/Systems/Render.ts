@@ -12,26 +12,33 @@ module Game {
         export class Render implements RenderSystem {
             private _renderer: PIXI.WebGLRenderer | PIXI.CanvasRenderer;
             private _stage: PIXI.Container;
+            private _gameContainer: PIXI.Container;
+            private _menuContainer: PIXI.Container;
+            private _collisionBodyContainer: PIXI.Container;
 
             private _knownEntityIdsOld: number[];
             private _renderedObjects: PIXI.DisplayObject[];
 
-            private _collisionBodyContainer: PIXI.Container;
-
             constructor(options: RenderOptions) {
                 this._renderer = PIXI.autoDetectRenderer(options.XSize, options.YSize);
-                this._stage = new PIXI.Container();
+                this._stage = new PIXI.Container();  
+                             
+                this._gameContainer = new PIXI.Container();
+                this._menuContainer = new PIXI.Container();
+                this._collisionBodyContainer = new PIXI.Container();
 
                 this._knownEntityIdsOld = [];
                 this._renderedObjects = [];
 
                 document.getElementById("game").appendChild(this._renderer.view);
+
+                // je später ein Container als Kind hinzugefügt wird, desto geringer ist sein zIndex
+                this._stage.addChild(this._gameContainer);
+                this._stage.addChild(this._menuContainer);
+                this._stage.addChild(this._collisionBodyContainer);
             }
 
-            Resize(options: RenderOptions) {
-                //this._knownEntityIdsOld = [];
-                //this._renderedObjects = [];
-
+            Resize(options: RenderOptions) {            
                 this._renderer.view.style.width = options.XSize + 'px';
                 this._renderer.view.style.height = options.YSize + 'px';
 
@@ -42,10 +49,14 @@ module Game {
                 this.Render(dt, entities);
 
                 if (DebugSettings.DrawCollisonBodies) {
-                    this.DrawCollisionBodies(dt, entities, this._stage);
+                    this.DrawCollisionBodies(dt, entities);
                 }
 
                 this._renderer.render(this._stage);
+            }
+
+            GetMenuContainer(): PIXI.Container {
+                return this._menuContainer;
             }
 
             private Render(dt: number, entities: ECS.Entity[]) {
@@ -66,7 +77,7 @@ module Game {
 
                 // alte entfernen
                 inOldButNotNew.forEach(entityId => {
-                    this._stage.removeChild(this._renderedObjects[entityId]);
+                    this._gameContainer.removeChild(this._renderedObjects[entityId]);
                     delete this._renderedObjects[entityId];
                 });
 
@@ -75,7 +86,7 @@ module Game {
                     var sprite = new PIXI.Sprite(Game.Assets.Sprites.LoadedTextures[renderComponents[entityId].Id].texture);
                     sprite.anchor = new PIXI.Point(0.5, 0.5);
 
-                    this._stage.addChild(sprite);
+                    this._gameContainer.addChild(sprite);
                     this._renderedObjects[entityId] = sprite;
                 });
 
@@ -90,7 +101,7 @@ module Game {
                 this._knownEntityIdsOld = knownEntityIds;
             }
 
-            private DrawCollisionBodies(dt: number, entities: ECS.Entity[], stage: PIXI.Container) {
+            private DrawCollisionBodies(dt: number, entities: ECS.Entity[]) {
                 if (this._collisionBodyContainer) {
                     this._stage.removeChild(this._collisionBodyContainer);
                 }
@@ -114,12 +125,12 @@ module Game {
 
                     // draw a rectangle
                     graphics.drawRect(body.X, body.Y, body.XSize, body.YSize);
-                    
+
                     collisionBodyContainer.addChild(graphics);
                 });
 
                 this._collisionBodyContainer = collisionBodyContainer;
-                stage.addChild(collisionBodyContainer);
+                this._stage.addChild(collisionBodyContainer);
             }
         }
     }

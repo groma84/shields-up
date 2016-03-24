@@ -11,6 +11,7 @@ module Game {
             }
 
             static Render: (dt: number, entities: Game.ECS.Entity[]) => void = (dt, entities) => {
+                Game.UI.Items.UpdateAll(dt);
                 Game.Systems.Manager.RenderSystems.forEach(system => system.Run(dt, entities));
             }
         }

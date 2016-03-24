@@ -50,6 +50,7 @@ module Game {
                 Game.Systems.Manager.RenderSystems = [
                     renderSystem
                 ];
+                Game.Systems.Manager.ActiveRenderSystem = renderSystem;
 
                 // MessageSystems, die sich dann selbst beim MessageManager registrieren
                 var bounceListener = new Game.Systems.BounceListener();

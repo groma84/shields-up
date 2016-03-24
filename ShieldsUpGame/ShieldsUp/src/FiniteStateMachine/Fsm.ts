@@ -24,6 +24,7 @@ module Game {
                             console.debug("ongame");
 
                             Game.Systems.Initialize.All();
+                            Game.UI.InitializeUI.All();
 
                             new Game.Gameloop().Run(new Game.GameloopOptions(Game.Systems.Loops.Update, Game.Systems.Loops.Render, 30));
                         },
