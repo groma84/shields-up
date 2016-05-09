@@ -1,2 +1,2 @@
 # shields-up
-My first small Javascript-Browsergame
+DISCONTINUED -- My first small Javascript-Browsergame
